@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MVC9pmBatch
+namespace MVcApp
 {
     public class RouteConfig
     {
@@ -15,8 +15,8 @@ namespace MVC9pmBatch
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}/{Name}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, Name = UrlParameter.Optional }
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index", EmpId = UrlParameter.Optional }
             );
         }
     }
