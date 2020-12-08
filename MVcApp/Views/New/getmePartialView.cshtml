@@ -1,0 +1,14 @@
+﻿@model List<MVcApp.Models.StudentModel>
+@{
+    ViewBag.Title = "getmePartialView";
+}
+
+ 
+
+
+<h1>Student Details</h1>
+@{ var s=Html.Partial("_MyPrartialView", Model)}
+
+@{
+  Html.RenderPartial("_MyPrartialView", Model);
+        }

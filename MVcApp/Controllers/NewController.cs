@@ -159,5 +159,32 @@ namespace MVcApp.Controllers
             return Json(listObj,JsonRequestBehavior.AllowGet);
 
         }
+
+        public ActionResult getmePartialView() {
+            StudentModel st = new Models.StudentModel();
+            st.sname = "Shoaib";
+            StudentModel st1 = new Models.StudentModel();
+            st1.sname = "prachi";
+            StudentModel st2 = new Models.StudentModel();
+            st2.sname = "Khader";
+
+            List<StudentModel> list = new List<Models.StudentModel>();
+            list.Add(st);
+            list.Add(st1);
+            list.Add(st2);
+
+            return View(list);
+        }
+
+        public PartialViewResult getmePartialView1()
+        {
+
+            return PartialView("_MyPrartialView");
+        }
+
+        public FileResult getmeFile() {
+
+            return File("~/Web.config","application/xml","test");
+        }
     }
 }
