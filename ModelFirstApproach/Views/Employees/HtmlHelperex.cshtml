@@ -1,0 +1,48 @@
+﻿@model  ModelFirstApproach.Models.Employee
+@using ModelFirstApproach.Controls
+@{
+    ViewBag.Title = "HtmlHelperex";
+}
+
+<h2>HtmlHelperex</h2>
+
+<script>
+    function fun() {
+        alert("Hello World");
+    }
+
+</script>
+
+@Html.TextBox("Ename", null, new { @style = "background-color: ;", @class = "form-control", @onclick = "fun()" })
+<input type="text" onclick="fun()" />
+@Html.TextBoxFor(x => x.Ename, new { @style = "background-color:brown;", @class = "form-control", @onclick = "fun()" })
+
+@Html.CheckBox("java", true)
+@Html.CheckBox("Dotnet", true)
+
+<span>Male</span> @Html.RadioButton("Gender", "Male")<br />
+<span>FeMale</span> @Html.RadioButton("Gender", "FeMale")<br />
+@Html.DropDownList("Country", new List<SelectListItem>()
+{
+new SelectListItem{ Text="India",Value="India"},
+new SelectListItem{ Text="Sudan",Value="Sudan",Selected=true},
+new SelectListItem{ Text="China",Value="China"}
+}, " Select Country ")
+
+<br />
+
+@Html.DropDownList("Employee")
+
+@Html.DropDownList("Emplist", (IEnumerable<SelectListItem>)ViewBag.Employee, "Select Employee")
+
+@MyControls.MyLabel("I Accept the Agreement", "blue")<br />
+@Html.createUrControl("text")<br />
+@Html.createUrControl("file")<br />
+@Html.createUrControl("radio")<br />
+
+@helper getLabel(string type)
+{
+    <input type="@type" />
+}
+
+@getLabel("text")
