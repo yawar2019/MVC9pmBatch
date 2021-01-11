@@ -19,7 +19,7 @@ namespace HandleErrorProject.Controllers
 
             return View();
         }
-        [OutputCache(Duration =20)]
+        [OutputCache(Duration =20 ,Location =System.Web.UI.OutputCacheLocation.Client)]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
