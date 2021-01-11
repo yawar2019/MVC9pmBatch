@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MVC9pmBatch.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVC9pmBatch.Controllers
 {
@@ -39,6 +41,46 @@ namespace MVC9pmBatch.Controllers
             return "My Id is"+ id+ " Name "+ Name;
 
         }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(User u)
+        {
+            redchilliEntities db = new redchilliEntities();
+            User details= db.Users.Where(x => x.UserName == u.UserName && x.Password == u.Password).FirstOrDefault();
+            if (details != null)
+            {
+                FormsAuthentication.SetAuthCookie(u.UserName, true);
+                return Redirect("Index");
 
+            }
+            else
+            {
+                return View();
+
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult ContactUS() {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Aboutus()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("Index");
+        }
     }
 }

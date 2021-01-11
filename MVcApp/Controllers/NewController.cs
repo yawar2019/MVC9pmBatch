@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MVcApp.MyFilter;
 namespace MVcApp.Controllers
 {
+    [MyCustomFilter]
     public class NewController : Controller
     {
         // GET: New
@@ -185,6 +186,14 @@ namespace MVcApp.Controllers
         public FileResult getmeFile() {
 
             return File("~/Web.config","application/xml","test");
+        }
+
+       
+        public ActionResult GetMyMethod()
+        {
+            ViewBag.Player = "Virat";
+            
+            return View();
         }
     }
 }
