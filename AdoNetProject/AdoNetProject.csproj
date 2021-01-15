@@ -222,6 +222,7 @@
     <Content Include="Views\EmpDetails\Edit.cshtml" />
     <Content Include="Views\EmpDetails\Index.cshtml" />
     <Content Include="Views\ViewDataExample\Index.cshtml" />
+    <Content Include="Views\ViewDataExample\Index1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
